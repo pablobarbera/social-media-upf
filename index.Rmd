@@ -1,0 +1,89 @@
+---
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+---
+
+<div class="container">
+<div class="jumbotron" style="margin-left:-15px">
+<h1 class="title">Social Media & Big Data Research</h1>
+<h2 class="subtitle">Summer School in Survey Methodology</h2>
+<p>Universitat Pompeu Fabra, July 2-4 2018</p>
+</div>
+</div>
+
+Citizens across the globe spend an increasing proportion of their daily lives online. Their activities leave behind granular, time-stamped footprints of human behavior and personal interactions that represent a new and exciting source of data to study standing questions about political and social behavior. At the same time, the volume and heterogeneity of web data present unprecedented methodological challenges. The goal of this course is to introduce participants to new computational methods and tools required to explore and analyze Big Data from online sources using the R programming language. We will focus in particular on data collected from social networking sites, such as Facebook and Twitter, whose use is becoming widespread in the social sciences.
+
+Each session will provide an overview of the literature and research methods on a particular theme to then dive into a specific application, documenting each step from data collection to the analysis required to test hypotheses related to core social science questions. Code and data for all the applications will be provided. The course will follow a “learning by doing” approach, and participants will be asked to complete a series of coding challenges.
+
+# Instructor
+
+<table class = "table table-striped">
+<tr>
+<td><a href="http://www.pablobarbera.com"><strong>Pablo Barberá</strong></a></td>
+<td><a href="mailto:P.Barbera@lse.ac.uk">P.Barbera@lse.ac.uk</a></td>
+<td><a href="https://www.twitter.com/p_barbera">@p_barbera</a></td>
+</tr>
+</table>
+
+
+# Schedule
+
+<table class = "table table-striped table-hover">
+<tr>
+<td><b>Session 1</b></td>
+<td>July 2, 2018</td>
+<td>Social Media and Big Data Research: Opportunities and Challenges.</td>
+<td> 14&ndash;18:00 </td>
+</tr>
+<tr>
+<td><b>Session 2</b></td>
+<td>July 3, 2018</td>
+<td>Automated Text Analysis of Social Media Text.</td>
+<td> 14&ndash;18:00 </td>
+</tr>
+<tr>
+<td><b>Session 3</b></td>
+<td>July 4, 2018</td>
+<td> Exploratory Analysis of Large-Scale Social Media Data</td>
+<td> 14&ndash;18:00 </td>
+</tr>
+</table>
+
+
+# Prerequisites
+
+The workshop assumes familiarity with the R statistical programming language. Participants should be able to know how to read datasets in R, work with vectors and data frames, and run basic statistical analyses, such as linear regression. More advanced knowledge of statistical computing, such as writing functions and loops, is helpful but not required.
+
+Students are expected to bring a laptop to class and follow along the coding section of each session.
+
+
+# Structure
+
+The workshop is divided into three sessions. The first session will begin with a discussion of the definition of "Big Data" and the research opportunities and challenges of the use of massive-scale datasets in the social sciences. We will then focus on how social media sites represent a new source of data to study human behavior, and also how its use raises a whole new series of questions that are relevant to social scientists. The applied part of this session will provide a foundation of R coding skills upon which we will rely during the rest of the course. Here, we will go over existing packages to efficiently analyze large-scale text datasets in R and learn how to write functions and loops with examples of social media datasets.
+
+The second session will focus on the most common application of Big Data in the social sciences: large-scale text classification. After a quick overview of the basics of machine learning, we will discuss specific details of the implementation of supervised learning algorithms in massive-scale datasets. Our emphasis will lie on the practical aspects: we will study these methods in the context of two applications: sentiment analysis of social media posts and ideological scaling of party manifestos. We will go through the entire research process, from the creation of a training dataset labeled by humans using crowd-sourcing platforms, to the application and validation of the machine learning algorithm, and passing through all the intermediate steps, such as cleaning and preprocessing the corpus of documents.
+
+Exploratory data analysis can be a powerful tool for social scientists when they are interested in analyzing a new dataset. The third session will cover the existing tools for large-scale discovery in “Big Data” using R, applied to textual datasets. We will start with different techniques, such as collocation analysis, keyness, and readability, which will allow us to identify salient themes and ideas across documents. Then, we will move to topic models, which allow researchers to automatically identify latent classes of documents in a corpus, with an application to the classification of Facebook posts by politicians into relevant political issues. This session will also cover other dimensionality reduction techniques that are commonly used in the social sciences to visualize large-scale datasets.
+
+
+# Software 
+
+This course will use [R](https://www.r-project.org/), which is a free and open-source programming language primarily used for statistics and data analysis. We will also use [RStudio](https://www.rstudio.com/), which is an easy-to-use interface to R. 
+
+Installing R or RStudio prior to the workshop is not necessary. The instructor will provide individual login details to an RStudio Server that all workshop participants can access to run their code.
+
+# License and credit
+
+Science should be open, and this course builds up other open licensed material, so unless otherwise noted, all materials for this class are licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+
+The layout for this website was designed by [Jeffrey Arnold](http://www.jrnold.me/) (thanks!).
+
+The source for the materials of this course is on GitHub at <a href="https://github.com/pablobarbera/social-media-upf">pablobarbera/social-media-upf</a>
+
+# Feedback
+
+If you have any feedback on the course or find any typos or errors in this website go to [issues](https://github.com/pablobarbera/social-media-upf/issues), click on the "New Issue" button to create a new issue, and add your suggestion or describe the problem.
+
+

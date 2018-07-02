@@ -1,0 +1,50 @@
+---
+title: "Misc"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Adding metadata
+
+One nice feature of quanteda is that we can easily add metadata to the corpus object.
+
+```{r}
+docvars(twcorpus) <- data.frame(screen_name=tweets$screen_name, polite=tweets$polite)
+summary(twcorpus)
+```
+
+We can then use this metadata to subset the dataset:
+
+```{r}
+polite.tweets <- corpus_subset(twcorpus, polite=="impolite")
+```
+
+And then extract the text:
+```{r}
+mytexts <- texts(polite.tweets)
+```
+
+We'll come back later to this dataset.
+
+
+
+### Importing text with quanteda
+
+There are different ways to read text into `R` and create a `corpus` object with `quanteda`. We have already seen the most common way, importing the text from a csv file and then adding the metadata, but `quanteda` has a built-in function to help with this:
+
+```{r}
+library(readtext)
+tweets <- readtext(file='data/EP-elections-tweets.csv')
+twcorpus <- corpus(tweets)
+```
+
+This function will also work with text in multiple files. To do this, we use the textfile command, and use the 'glob' operator '*' to indicate that we want to load multiple files:
+
+```{r}
+myCorpus <- readtext(file='data/inaugural/*.txt')
+inaugCorpus <- corpus(myCorpus)
+```
+

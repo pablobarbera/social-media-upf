@@ -1,0 +1,68 @@
+---
+title: Code
+---
+
+The following list provides links to the slides and code used in the guided coding sessions. The solutions to the challenges will be made available through RStudio Server.
+
+<div class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h2 id="day1" class="panel-title">
+<a data-toggle="collapse" href="#collapse2">July 2nd: Social Media and Big Data Research, Opportunities and Challenges.</a>
+</h2>
+</div>
+<div id="collapse1" class="panel-collapse collapse in" style="margin:12px">
+
+<ul>
+<li><p><a href="slides/01-social-media-intro.pdf">SLIDES: Introduction to social media research</a></p>
+</li>
+
+<li><p><a href="code/00-setup.html">Introduction to RMarkdown and Setup</a> (<a href="code/00-setup.Rmd">.Rmd file</a>)</p>
+</li>
+<li><p><a href="slides/02-text-intro.pdf">SLIDES: Basics of text analysis</a></p>
+</li>
+<li><p><a href="code/01-text-intro.html">Introduction to Automated Text Analysis of Social Media Text</a> (<a href="code/01-text-intro.Rmd">.Rmd file</a>)</p>
+</li>
+<li><p><a href="code/02-quanteda-intro.html">Using Quanteda to Analyze Social Media Text</a> (<a href="code/02-quanteda-intro.Rmd">.Rmd file</a>)</p>
+</li>
+<li><p><a href="code/03-loops-functions.html">Lists, Functions, and Loops
+</a> (<a href="code/03-loops-functions.Rmd">.Rmd file</a>)</p>
+</li>
+<li><p><a href="challenges/challenge1.Rmd">Coding challenge 1 (.Rmd file)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h2 id="day2" class="panel-title">
+<a data-toggle="collapse" href="#collapse3">July 3rd: Automated Text Analysis of Social Media Text.</a>
+</h2>
+</div>
+<div id="collapse2" class="panel-collapse collapse in" style="margin:12px">
+
+Coming soon...
+
+</div>
+</div>
+</div>
+
+
+<div class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h2 id="day3" class="panel-title">
+<a data-toggle="collapse" href="#collapse3">July 4th: Exploratory Analysis of Large-Scale Social Media Data</a>
+</h2>
+</div>
+<div id="collapse3" class="panel-collapse collapse in" style="margin:12px">
+
+
+Coming soon...
+
+</div>
+</div>
+</div>
