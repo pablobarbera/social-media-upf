@@ -28,7 +28,7 @@ The following list provides links to the slides and code used in the guided codi
 <li><p><a href="code/03-loops-functions.html">Lists, Functions, and Loops
 </a> (<a href="code/03-loops-functions.Rmd">.Rmd file</a>)</p>
 </li>
-<li><p><a href="challenges/challenge1.Rmd">Coding challenge 1 (.Rmd file)</a></p>
+<li><p><a href="code/challenge1.Rmd">Coding challenge 1 (.Rmd file)</a></p>
 </li>
 </ul>
 </div>
