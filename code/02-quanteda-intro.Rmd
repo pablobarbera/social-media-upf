@@ -67,7 +67,7 @@ twdfm
 It's often a good idea to take a look at a wordcloud of the most frequent features to see if there's anything weird.
 
 ```{r}
-textplot_wordcloud(twdfm, rot.per=0, scale=c(3, .75), max.words=50)
+textplot_wordcloud(twdfm, rotation=0, min_size=.75, max_size=3, max_words=50)
 ```
 
 What is going on? We probably want to remove words and symbols which are not of interest to our data, such as http here. This class of words which is not relevant are called stopwords. These are words which are common connectors in a given language (e.g. "a", "the", "is"). We can also see the list using `topFeatures`
@@ -81,6 +81,6 @@ We can remove the stopwords when we create the `dfm` object:
 ```{r}
 twdfm <- dfm(twcorpus, remove_punct = TRUE, remove=c(
   stopwords("english"), "t.co", "https", "rt", "amp", "http", "t.c", "can", "u"), remove_url=TRUE, verbose=TRUE)
-textplot_wordcloud(twdfm, rot.per=0, scale=c(3, .75), max.words=50)
+textplot_wordcloud(twdfm, rotation=0, min_size=.75, max_size=3, max_words=50)
 ```
 
