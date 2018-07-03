@@ -1,0 +1,124 @@
+---
+title: "Dictionary methods"
+author: Pablo Barbera
+date: July 3, 2018
+output: html_document
+---
+
+One of the most common applications of dictionary methods is sentiment analysis: using a dictionary of positive and negative words, we compute a sentiment score for each individual document.
+
+Let's apply this technique to tweets by the four leading candidates in the 2016 Presidential primaries.
+
+```{r}
+library(quanteda)
+tweets <- read.csv('../data/candidate-tweets.csv', stringsAsFactors=F)
+```
+
+We will use the LIWC dictionary to measure the extent to which these candidates adopted a positive or negative tone during the election campaign. (Note: LIWC is provided here for teaching purposes only and will not be distributed publicly.) LIWC has many other categories, but for now let's just use `positive` and `negative`
+
+```{r}
+liwc <- read.csv("../data/liwc-dictionary.csv",
+                 stringsAsFactors = FALSE)
+table(liwc$class)
+
+pos.words <- liwc$word[liwc$class=="positive"]
+neg.words <- liwc$word[liwc$class=="negative"]
+# a look at a random sample of positive and negative words
+sample(pos.words, 10)
+sample(neg.words, 10)
+
+```
+
+As earlier today, we will convert our text to a corpus object.
+
+```{r}
+twcorpus <- corpus(tweets)
+```
+
+Now we're ready to run the sentiment analysis! First we will construct a dictionary object.
+
+```{r}
+mydict <- dictionary(list(positive = pos.words,
+                          negative = neg.words))
+```
+
+And now we apply it to the corpus in order to count the number of words that appear in each category
+
+```{r}
+sent <- dfm(twcorpus, dictionary = mydict)
+```
+
+We can then extract the score and add it to the data frame as a new variable
+
+```{r}
+tweets$score <- as.numeric(sent[,1]) - as.numeric(sent[,2])
+```
+
+And now start answering some descriptive questions...
+
+```{r}
+# what is the average sentiment score?
+mean(tweets$score)
+# what is the most positive and most negative tweet?
+tweets[which.max(tweets$score),]
+tweets[which.min(tweets$score),]
+# what is the proportion of positive, neutral, and negative tweets?
+tweets$sentiment <- "neutral"
+tweets$sentiment[tweets$score<0] <- "negative"
+tweets$sentiment[tweets$score>0] <- "positive"
+table(tweets$sentiment)
+```
+
+We can also disaggregate by groups of tweets, for example according to the party they mention.
+
+```{r}
+# loop over candidates
+candidates <- c("realDonaldTrump", "HillaryClinton", "tedcruz", "BernieSanders")
+
+for (cand in candidates){
+  message(cand, " -- average sentiment: ",
+      round(mean(tweets$score[tweets$screen_name==cand]), 4)
+    )
+}
+
+```
+
+But what happens if we now run the analysis excluding a single word?
+
+```{r}
+pos.words <- pos.words[-which(pos.words=="great")]
+
+mydict <- dictionary(list(positive = pos.words,
+                          negative = neg.words))
+sent <- dfm(twcorpus, dictionary = mydict)
+tweets$score <- as.numeric(sent[,1]) - as.numeric(sent[,2])
+
+for (cand in candidates){
+  message(cand, " -- average sentiment: ",
+      round(mean(tweets$score[tweets$screen_name==cand]), 4)
+    )
+}
+
+```
+
+How would we normalize by text length? (Maybe not necessary here given that tweets have roughly the same length.)
+
+```{r}
+# collapse by account into 4 documents
+twdfm <- dfm(twcorpus, groups = "screen_name")
+twdfm
+
+# turn word counts into proportions
+twdfm[1:4, 1:10]
+twdfm <- dfm_weight(twdfm, scheme="prop")
+twdfm[1:4, 1:10]
+
+# Apply dictionary using `dfm_lookup()` function:
+sent <- dfm_lookup(twdfm, dictionary = mydict)
+sent
+(sent[,1]-sent[,2])*100
+
+```
+
+
+
