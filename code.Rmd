@@ -77,7 +77,29 @@ The following list provides links to the slides and code used in the guided codi
 <div id="collapse3" class="panel-collapse collapse in" style="margin:12px">
 
 
-Coming soon...
+<ul>
+<li><p><a href="slides/05-text-discovery.pdf">SLIDES: Discovery in social media text</a></p>
+</li>
+
+<li><p><a href="code/07-text-discovery.html">Discovery in social media text</a> (<a href="code/07-text-discovery.Rmd">.Rmd file</a>)</p>
+</li>
+<li><p><a href="code/08-topic-models.html">Topic models</a> (<a href="code/08-topic-models.Rmd">.Rmd file</a>)</p>
+</li>
+<li><p><a href="code/09-advanced-topic-models.html">(Advanced) topic models</a> (<a href="code/09-advanced-topic-models.Rmd">.Rmd file</a>)</p>
+</li>
+<li><p><a href="code/challenge4.Rmd">Coding challenge 4 (.Rmd file)</a></p>
+</li>
+<li><p><a href="slides/06-networks.pdf">SLIDES: Analysis of social media networks</a></p>
+</li>
+<li><p><a href="code/10-networks-intro.html">Introduction to social network analysis</a> (<a href="code/10-networks-intro.Rmd">.Rmd file</a>)</p>
+</li>
+<li><p><a href="code/11-networks-discovery.html">Discovery in networks</a> (<a href="code/11-networks-discovery.Rmd">.Rmd file</a>)</p>
+</li>
+<li><p><a href="code/challenge5.Rmd">Coding challenge 5 (.Rmd file)</a></p>
+</li>
+</ul>
+
+
 
 </div>
 </div>

@@ -54,9 +54,37 @@ done
 # solutions challenge 2
 for i in 0{1..9} {10..50}
 do
-	cp /home/rstudio/code/challenge2-solutions.rmd /home/upf$i/code/
+	cp /home/rstudio/code/challenge2-solutions.Rmd /home/upf$i/code/
 	cp /home/rstudio/code/challenge2-solutions.html /home/upf$i/code/
 	sudo chown upf$i -R /home/upf$i/
 done
 
 
+# solutions challenge 2
+for i in 0{1..9} {10..50}
+do
+	cp /home/rstudio/code/challenge3-solutions.Rmd /home/upf$i/code/
+	cp /home/rstudio/code/challenge3-solutions.html /home/upf$i/code/
+	sudo chown upf$i -R /home/upf$i/
+done
+
+
+# materials day 3
+for i in 0{1..9} {10..50}
+do
+	cp /home/rstudio/code/07-text-discovery.Rmd /home/upf$i/code/
+	cp /home/rstudio/code/08-topic-models.Rmd /home/upf$i/code/
+	cp /home/rstudio/code/09-advanced-topic-models.Rmd /home/upf$i/code/
+	cp /home/rstudio/code/09-advanced-topic-models.Rmd /home/upf$i/code/
+	cp /home/rstudio/code/10-networks-intro.Rmd /home/upf$i/code/
+	cp /home/rstudio/code/11-networks-discovery.Rmd /home/upf$i/code/
+	cp /home/rstudio/code/challenge4.Rmd /home/upf$i/code/
+	cp /home/rstudio/code/challenge5.Rmd /home/upf$i/code/
+	cp /home/rstudio/data/recsm-nodes.csv /home/upf$i/data/
+	cp /home/rstudio/data/recsm-edges.csv /home/upf$i/data/
+	cp /home/rstudio/data/nytimes.csv /home/upf$i/data/
+	cp /home/rstudio/data/GOT-edges.csv /home/upf$i/data/
+	cp /home/rstudio/data/congress-twitter-network-edges.csv /home/upf$i/data/
+	cp /home/rstudio/data/congress-twitter-network-nodes.csv /home/upf$i/data/
+	sudo chown upf$i -R /home/upf$i/
+done

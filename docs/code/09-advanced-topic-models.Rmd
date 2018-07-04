@@ -1,0 +1,104 @@
+---
+title: "(Advanced) topic models"
+author: Pablo Barbera
+date: July 4, 2018
+output: html_document
+---
+
+## Topic Modeling: Structural Topic Model
+
+```{r message = FALSE}
+library(topicmodels)
+# reading data and preparing corpus object
+nyt <- read.csv("../data/nytimes.csv", stringsAsFactors = FALSE)
+library(quanteda)
+nytcorpus <- corpus(nyt$lead_paragraph)
+nytdfm <- dfm(nytcorpus, remove=stopwords("english"), verbose=TRUE,
+               remove_punct=TRUE, remove_numbers=TRUE)
+cdfm <- dfm_trim(nytdfm, min_docfreq = 2)
+
+```
+
+Most text corpora have not only the documents per se, but also a lot of metadata associated -- we know the author, characteristics of the author, when the document was produced, etc. The structural topic model takes advantage of this metadata to improve the discovery of topics. Here we will learn how it works, how we can interpret the output, and some issues related to its usage for research.
+
+We will continue with the previous example, but now adding one covariate: the party of the president.
+
+```{r}
+library(stm)
+# extracting covariates
+year <- as.numeric(substr(nyt$datetime, 1, 4))
+repub <- ifelse(year %in% c(1981:1992, 2000:2008), 1, 0)
+```
+
+And now we're ready to run `stm`!
+
+```{r, eval=FALSE}
+# metadata into a data frame
+meta <- data.frame(year=year, repub=repub)
+# running STM
+stm <- stm(documents=cdfm, K=30, prevalence=~repub+s(year),
+           data=meta, seed=123)
+save(stm, file="../backup/stm-output.Rdata")
+```
+
+`stm` offers a series of features to explore the output. First, just like LDA, we can look at the words that are most associated with each topic.
+
+```{r}
+load("../backup/stm-output.Rdata")
+# looking at a few topics
+labelTopics(stm, topics=1)
+labelTopics(stm, topics=4)
+labelTopics(stm, topics=7)
+labelTopics(stm, topics=10)
+```
+
+But unlike LDA, we now can estimate the effects of the features we considered into the prevalence of different topics
+
+```{r}
+# effects
+est <- estimateEffect(~repub, stm,
+	uncertainty="None")
+labelTopics(stm, topics=1)
+summary(est, topics=1)
+
+labelTopics(stm, topics=4)
+summary(est, topics=4)
+
+labelTopics(stm, topics=7)
+summary(est, topics=7)
+
+labelTopics(stm, topics=9)
+summary(est, topics=9)
+```
+
+Let's say we're interested in finding the most partisan topics. How would we do this?
+
+```{r}
+# let's look at the structure of the output object...
+names(est)
+length(est$parameters)
+est$parameters[[1]]
+
+# aha! we'll just extract the coefficients for each topic
+coef <- se <- rep(NA, 30)
+for (i in 1:30){
+	coef[i] <- est$parameters[[i]][[1]]$est[2]
+	se[i] <- sqrt(est$parameters[[i]][[1]]$vcov[2,2])
+}
+
+df <- data.frame(topic = 1:30, coef=coef, se=se)
+df <- df[order(df$coef),] # sorting by "partisanship"
+head(df[order(df$coef),])
+tail(df[order(df$coef),])
+
+# three most "democratic" topics
+labelTopics(stm, topics=df$topic[1])
+labelTopics(stm, topics=df$topic[5])
+labelTopics(stm, topics=df$topic[26])
+
+# three most "republican" topics
+labelTopics(stm, topics=df$topic[16])
+labelTopics(stm, topics=df$topic[28])
+labelTopics(stm, topics=df$topic[11])
+```
+

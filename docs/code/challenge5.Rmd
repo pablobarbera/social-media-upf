@@ -1,0 +1,38 @@
+---
+title: "Challenge 5: Discovery in networks"
+author: Pablo Barbera
+date: "July 4, 2018"
+output: html_document
+---
+
+For our last challenge in the course, you will analyze the Twitter network of the Members of the U.S. Congress.
+
+In the `data` folder, you will find two data files:
+
+- `congress-twitter-network-edges.csv` contains the edges of this network. Note that these nodes are directed: they indicate whether the legislator in the `source` column follows the legislator in the `target` column.
+
+- `congress-twitter-network-nodes.csv` contains information about each of the nodes. The only important variables we will use here are: `id_str` (the unique Twitter ID for each legislator; same as in the edge list), `name` (full name of each legislator), `party` (Republican, Democrat or Independent), and `chamber` (`rep` for the House of Representatives, `sen` for the Senate).
+
+The first step will be to read these two datasets into R and construct the igraph object. How many nodes and edges does this network have?
+
+```{r}
+nodes <- read.csv("../data/congress-twitter-network-nodes.csv")
+edges <- read.csv("../data/congress-twitter-network-edges.csv")
+
+```
+
+Who are the most relevant Members of Congress, according to different measures of centrality? Note that this is a directed network, which means there is a difference between indegree and outdegree.
+
+```{r}
+
+```
+
+What communities can you find in the network? Use the additional node-level variables to try to identify whether these communities overlap with any other attributes.
+
+```{r}
+
+```
+
+
+
+

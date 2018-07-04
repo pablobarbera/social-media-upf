@@ -1,0 +1,46 @@
+---
+title: "Challenge 4: Discovery in social media text"
+author: Pablo Barbera
+date: "July 4, 2018"
+output: html_document
+---
+
+Now it's your turn to run some topic models with social media text! 
+
+The goal of this challenge is to understand the communication strategies of Donald Trump on Twitter. First, read the file that contains his tweets from the past year and a half. We will create a new variable called `month` to help us track changes in topic usage over time.
+
+```{r}
+library(quanteda)
+library(streamR)
+library(topicmodels)
+tweets <- parseTweets("../data/trump-tweets.json")
+tweets$date <- tweetscores::formatTwDate(tweets$created_at, "date")
+tweets$month <- substr(tweets$date, 1, 7)
+```
+
+Create a corpus object and a DFM using options that seem appropriate to you.
+
+```{r}
+
+```
+
+Run an LDA model. You may want to experiment with different number of topics or just stick to `K=30`.
+
+```{r}
+
+```
+
+Look at the words most asociated with each topic for a sample of topics. Do you find that the results are valid according to the different definitions of validity we discussed earlier? Can you put labels to the topics?
+
+```{r}
+
+
+```
+
+Pick a topic whose prevalence you think may have evolved over time and plot it. (For example, North Korea). What do you find?
+
+```{r}
+
+
+```
+

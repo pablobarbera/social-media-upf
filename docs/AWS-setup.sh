@@ -54,9 +54,18 @@ done
 # solutions challenge 2
 for i in 0{1..9} {10..50}
 do
-	cp /home/rstudio/code/challenge2-solutions.rmd /home/upf$i/code/
+	cp /home/rstudio/code/challenge2-solutions.Rmd /home/upf$i/code/
 	cp /home/rstudio/code/challenge2-solutions.html /home/upf$i/code/
 	sudo chown upf$i -R /home/upf$i/
 done
 
+
+
+# solutions challenge 2
+for i in 0{1..9} {10..50}
+do
+	cp /home/rstudio/code/challenge3-solutions.Rmd /home/upf$i/code/
+	cp /home/rstudio/code/challenge3-solutions.html /home/upf$i/code/
+	sudo chown upf$i -R /home/upf$i/
+done
 
