@@ -1,5 +1,4 @@
 ---
-title: Workshop - Social Media Research
 output:
   html_document:
     toc: true
